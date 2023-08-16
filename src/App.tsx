@@ -1,12 +1,16 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import {useDB, firstPick, useQuery} from "@vlcn.io/react";
+import {first, useDB, useQuery2} from "@vlcn.io/react";
+import { AppSchema } from './schemas/main';
 
 function App({dbname}: {dbname: string}) {
   const ctx = useDB(dbname);
 
-  const count = (useQuery(ctx, `SELECT [count] FROM test WHERE id = 1`, [], firstPick).data || 0) as number;
+  // const count = (useQuery(ctx, `SELECT [count] FROM test WHERE id = 1`, [], firstPick).data || 0) as number;
+  const res = first(useQuery2(ctx, AppSchema.sql<{
+  count: number
+}>`SELECT count FROM test WHERE id = 1`, []).data) || {count: 0};
 
   return (
     <>
@@ -21,7 +25,7 @@ function App({dbname}: {dbname: string}) {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => ctx.db.exec(`UPDATE test SET [count] = [count] + 1 WHERE id = 1`)}>
-          count is {count}
+          count is {res.count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
