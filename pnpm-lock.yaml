@@ -12,11 +12,11 @@ dependencies:
     specifier: 3.0.0-next.6
     version: 3.0.0-next.6(react@18.2.0)
   '@vlcn.io/typed-sql':
-    specifier: 0.2.7-next.1
-    version: 0.2.7-next.1
+    specifier: ^0.2.7
+    version: 0.2.7
   '@vlcn.io/typed-sql-cli':
-    specifier: ^0.2.6-next.0
-    version: 0.2.6
+    specifier: ^0.2.7
+    version: 0.2.7
   fast-check:
     specifier: ^3.12.0
     version: 3.12.0
@@ -865,20 +865,24 @@ packages:
       '@vlcn.io/xplat-api': 0.14.0-next.2
     dev: false
 
-  /@vlcn.io/type-gen-ts-adapter@0.2.6:
-    resolution: {integrity: sha512-hlUY4fRlKLni5ErI2ST2k+HGYPzwJyUZoN3SLeEBdCEU2Tnkbxppi2DZUuSQnN1c02iFifqTUWnLNCk56p0g4Q==}
+  /@vlcn.io/type-gen-ts-adapter@0.2.7:
+    resolution: {integrity: sha512-bemOq5KQOf+cQIRWgxRfVTTcs9bbu2j3W+TM477pF4VdeToszpd4EqWsqaB3e04wWb2gaZPSYOP18RKGBnD6Kg==}
     dependencies:
-      typed-sql-type-gen: 0.1.2
+      typed-sql-type-gen: 0.1.1
     dev: false
 
-  /@vlcn.io/typed-sql-cli@0.2.6:
-    resolution: {integrity: sha512-rMgKO2bCnXFaDSm92SI4mEbt9+XvDnEOBpJrY87b8CGr2jiUqMH1+Ejdy/LJZ9OKcSWVCbG9zVANelk/jnN0zQ==}
+  /@vlcn.io/typed-sql-cli@0.2.7:
+    resolution: {integrity: sha512-0AMRPvKZOChSB4+2eFNvVkB5+56ZSRbHmSKSk4RNVr/GtQYCWbOLAHKyPneYZEaV3jDWXnP9SG7LSDcfVyCERQ==}
     hasBin: true
     dependencies:
-      '@vlcn.io/type-gen-ts-adapter': 0.2.6
+      '@vlcn.io/type-gen-ts-adapter': 0.2.7
       commander: 11.0.0
       expect: 29.6.2
       typescript: 5.1.6
+    dev: false
+
+  /@vlcn.io/typed-sql@0.2.7:
+    resolution: {integrity: sha512-IX6oFN/Szxo0IsBMqJPIg4vN4fbCfolINU54TUljIoJnT7sMXn84yeMTC3tL0WoMxHp3Y0AAW9cK290Z/vmssw==}
     dev: false
 
   /@vlcn.io/typed-sql@0.2.7-next.1:
@@ -1926,8 +1930,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /typed-sql-type-gen@0.1.2:
-    resolution: {integrity: sha512-7zwaIJw9EwkyZwSjHcR1hwcIOQpPxXQb4LjLlWbOqYArz8BcCgXIab/PeN0RUibzi2750uqj07Irc2ZQPFXIRw==}
+  /typed-sql-type-gen@0.1.1:
+    resolution: {integrity: sha512-ghaa4Y+bw2YeR83NdwPESSo8gsQuBKWkHs205CE5mTBjj32olTMoIJ1CDcd625T2i9OUp5h5qGxizP53Kjj8Lg==}
     dev: false
 
   /typescript@5.1.6:

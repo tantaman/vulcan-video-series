@@ -13,8 +13,8 @@
   "dependencies": {
     "@vlcn.io/crsqlite-wasm": "0.15.0-next.4",
     "@vlcn.io/react": "3.0.0-next.6",
-    "@vlcn.io/typed-sql": "0.2.7-next.1",
-    "@vlcn.io/typed-sql-cli": "^0.2.6-next.0",
+    "@vlcn.io/typed-sql": "^0.2.7",
+    "@vlcn.io/typed-sql-cli": "^0.2.7",
     "fast-check": "^3.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
