@@ -46,7 +46,7 @@ export default function TableTable({
   };
 
   const dropRows = () => {
-    return ctx.db.exec(`DELETE FROM ${tableName}`);
+    return ctx.db.exec(`DELETE FROM ${tableName} WHERE 1`);
   };
 
   return (

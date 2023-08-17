@@ -12,10 +12,9 @@ function App({ dbname }: { dbname: string }) {
   const rows = useQuery2(
     ctx,
     AppSchema.sql<{
-      id: number;
-      name: string | null;
-      wing: number | null;
-    }>`SELECT * FROM test`,
+  id: number;
+  name: string | null
+}>`SELECT * FROM test`,
     []
   ).data;
 
