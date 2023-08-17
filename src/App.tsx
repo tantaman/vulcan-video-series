@@ -1,16 +1,18 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import {first, useDB, useQuery2} from "@vlcn.io/react";
-import { AppSchema } from './schemas/main';
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { useDB, useQuery2 } from "@vlcn.io/react";
+import { AppSchema } from "./schemas/main";
+import TableTable from "./TableTable";
 
-function App({dbname}: {dbname: string}) {
+function App({ dbname }: { dbname: string }) {
   const ctx = useDB(dbname);
 
-  // const count = (useQuery(ctx, `SELECT [count] FROM test WHERE id = 1`, [], firstPick).data || 0) as number;
-  const res = first(useQuery2(ctx, AppSchema.sql<{
-  count: number
-}>`SELECT count FROM test WHERE id = 1`, []).data) || {count: 0};
+  const rows = useQuery2(
+    ctx,
+    AppSchema.sql<{/*Could not find the referenced schema typescript type! Is it defined? /Users/tantaman/workspace2/vite-project/src/App.tsx:12:4*/}>`SELECT * FROM test`,
+    []
+  ).data;
 
   return (
     <>
@@ -24,18 +26,21 @@ function App({dbname}: {dbname: string}) {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => ctx.db.exec(`UPDATE test SET [count] = [count] + 1 WHERE id = 1`)}>
-          count is {res.count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <TableTable ctx={ctx} tableName="test">
+          {rows.map((row) => (
+            <tr key={row.id}>
+              {Object.values(row).map((cell, i) => (
+                <td key={i}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </TableTable>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
